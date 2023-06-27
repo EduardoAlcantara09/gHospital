@@ -1,0 +1,170 @@
+
+/*CSS de toda a Página*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+html,body{
+    height: 51%;
+    background-color: white;
+    width: 100%;
+    
+}
+header{
+   background-color: rgb(44,62,113);
+   padding: 10px 2%;
+   display: flex;
+   justify-content: space-between;
+}
+.info-header{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoSanMiguel img{
+width: 25%; /*tamanho logo da san miguel no topo*/
+margin-left: 0.5%;
+}
+
+/*FIM CSS CABEÇALHO*/
+
+/* INICIO CSS BARRA LATERAL DO MENU*/
+
+.menu-bar{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    background-color: white;
+}
+
+.side-bar{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    padding: 0 8px;
+    
+}
+.side-bar h3{
+    color:rgb(44,62,113) ;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.side-bar img{
+    margin-right: 2%;
+    
+}
+
+.side-bar a{
+    display: block;
+    text-decoration: none;
+    color:rgb(44,62,113) ;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.side-bar a:hover{
+    display: block;
+    text-decoration: none;
+    color:rgb(124,30,29) ;
+    background-color:rgb(245, 245, 245);
+    border-radius: 9px;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* FIM CSS BARRA LATERAL DO MENU*/
+
+/* ----------------------------- INICIO CSS CONTEUDO DA PAGINA ------------------------------------------------*/
+
+/* CAIXAS DE INFORMAÇÕES COLORIDAS - INICIO ---- TOPO HTML - A COLORACAO ESTÁ SENDO FEITA NO HTML EM LINHA*/
+
+.content{
+    width: 80%;
+    background-color: rgb(245, 245, 245);
+    padding-left: 1%;
+    height: 350%;
+    padding-top: 6%;
+}
+
+.box-info{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+   
+}
+
+.box-single{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    border-radius: 10px;
+    margin:0 10px;
+ 
+}
+
+/* CAIXAS DE INFORMAÇÕES COLORIDAS - FIM ---*/
+
+
+/* TABELAS DE INFORMAÇÕES DE DESOSPITALIZACAO - INICIO ---*/
+
+
+.tab-desospitalizacao{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+       
+}
+
+.tab-desosp-text{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    margin:0 10px;
+    box-shadow: 3px 3px 3px 3px #888888;
+    gap: 2px;
+    height: 30%;
+           
+}
+
+#titulo{
+    text-align: center;
+}
+#conteudoSobre{
+    margin-top: 2%;
+    margin-left: 33%;
+}
+
+#logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
+#mis{
+    width: 11%;
+    padding-top: 2%;
+}
+/* TABELAS DE INFORMAÇÕES DE DESOSPITALIZACAO - FIM---*/
+

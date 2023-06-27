@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/stilo.css">
+    <link rel="stylesheet" href="./CSS/movimentacaoInternados.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="shortcut icon" href="">
+    <script type='text/javascript' src="./Js/03_movimentacaoInternados.js"></script>
+    <script type='text/javascript' src="./Js/06_consultaPacientesDesospitalizados.js"></script>
+    <title>Movimentação Internados - GHosp</title>
+</head>
+<body page="lista">
+     <!------------------------------ INICIO CABEÇALHO ------------------------------------------------------------------------------->
+    <header>
+        <div class="info-header">
+            <div class="logoSanMiguel">
+                <img src="./Image/Rede San Miguel - Logo - Nome Branco.png"/>
+            </div>
+            <div class="nomeGHosp">
+                <h5>GHosp - Sistema de Gestão Hospitalar - San Miguel</h5>
+            </div>
+        </div> 
+    </header>
+    
+    <!------------------------------ FIM CABEÇALHO ------------------------------------------------------------------------------->
+ 
+
+    <section class="menu-bar"> 
+        <div class="side-bar"> <!--BARRA LATERAL INICIO-->
+        
+            <h3> Navegação </h3>
+            <a href="./02_home.html"><img src="./Image/Casa.png">Home</a>
+            <a href="./03_movimentacaoInternados.html"><img src="./Image/leito.png">Movimentação Internados</a>
+            <a href="./04_consultaCID.html"><img src="./Image/Lupa.png">Consulta CID-10</a>
+            <a href="./06_consultarPacientesDesospitalizados.html"><img src="./Image/seta.png">Consultar Pacientes Desospitalizados</a>
+            <a href="./05_sobre.html"><img src="./Image/binoclulos.png">Sobre</a>
+            <a href="./01_login.html"><img src="./Image/Saida.png">Sair</a>
+        
+        </div> <!--BARRA LATERAL FIM-->
+        
+        <div class="content"> <!--CONTEUDO DO PROGRAMA INICIO-->
+            <div class="box-info">
+                <input placeholder="Busque aqui o Nome do Paciente ou do Prestador"/>
+            </div> <!--FIM CONTEUDO DO BOX INFO-->
+
+            <div class="tab-desospitalizacao">
+                <div class="tab-desosp-text">
+                    <h3>PACIENTES INTERNADOS</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Carteirinha</th>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>Fone</th>
+                                <th>Cidade Residência</th>
+                                <th>UF da Residência</th>
+                                <th>Empresa</th>
+                                <th>CPT / Situação do Plano</th>
+                                <th>Número da Guia</th>
+                                <th>Cód CID Entrada</th>
+                                <th>Código CID de Confirmação Diagnóstica</th>
+                                <th>Prestador</th>
+                                <th>Acomodação do Plano do Paciente</th>
+                                <th>Cidade do Prestador</th>
+                                <th>UF</th>
+                                <th>Data de Admissão</th>
+                                <th>Acomodação Instalada</th>
+                                <th>Observações / Comentários</th>
+                                <th>Dias de Internamento</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id='listaRegistrosBody'></tbody>
+                    </table>
+                    <div class="botao-NovoUsuario">
+                        <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+            <div class="tab-desospitalizacao2">
+                <div class="tab-desosp-text2">
+                    <form id="cadastroRegistro">
+                        <div class="label-InfoPaciente">
+                            <div><h4> Identificação do Paciente </h4></div>
+                            <div class='label'>
+                                <div>ID</div>
+                                <div>
+                                    <input name = "id" type='number' readonly id='id' />
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div>Carteirinha</div>
+                                <div>
+                                    <input name="carteirinha" id='carteirinha' required/>
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div>Paciente</div>
+                                <div>
+                                    <input name="nome" id='nome' required/>
+                                </div>
+                            </div>
+                            <div class='label'>
+                                <div>Idade</div>
+                                <div>
+                                    <input type="number" name="idade" id='idade' required/>
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div>Telefone</div>
+                                <div>
+                                    <input type='tel' name="fone" id='fone' />
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div>Cidade Residência</div>
+                                <div>
+                                    <select name="cidadeResidencia" id="cidadeResidencia" required>
+                                        <option value="" selected disabled> Selecione a cidade de residencia do paciente <option>
+                                        <option> Alagoinhas</option>
+                                        <option> Aracaju </option>
+                                        <option> Camaçari </option>
+                                        <option> Catu </option>
+                                        <option> Dias D'avila </option>
+                                        <option> Duque de Caxias </option>
+                                        <option> Feira de Santana </option>
+                                        <option> Jequié </option>
+                                        <option> Juazeiro </option>
+                                        <option> Lauro de Freitas </option>
+                                        <option> Maceió </option>
+                                        <option> Recife </option>
+                                        <option> Rio de Janeiro </option>
+                                        <option> Salvador </option>
+                                        <option> Santo Antônio de Jesus </option>
+                                        <option> São Luis </option>
+                                        <option> São Paulo </option>
+                                        <option> Vitoria da Conquista </option>
+                                    </select>  
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div>UF</div>
+                                <div>
+                                    <select name="ufResidencia" id="ufResidencia" required>
+                                        <option value="" selected disabled> Selecione o Estado federativo de residencia do paciente <option>
+                                        <option> AL</option>
+                                        <option> BA </option>
+                                        <option> MA </option>
+                                        <option> PE </option>
+                                        <option> RJ </option>
+                                        <option> SE </option>
+                                        <option> SP </option>                
+                                    </select> 
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div>Empresa</div>
+                                <div>
+                                    <select name="empresa" id="empresa" required>
+                                        <option value="" selected disabled> Selecione a empresa que está vinculada ao paciente <option>
+                                        <option>2G2M GESTAO DE ALIMENTOS E SERVICOS LTDA</option>
+                                        <option>AFFIX ADMINISTRADORA DE BENEFICIOS LTDA</option>
+                                        <option>AG4 SERVICOS EMPRESARIAIS - EIRELI</option>
+                                        <option>AGILE EMPREENDIMENTOS SERVICOS EIRELI</option>
+                                        <option>AJFC EMPREENDIMENTOS LTDA</option>
+                                        <option>ALFA SERVICO DE LOCACAO DE MAO DE</option>
+                                        <option>ALIANCA CONSTRUCOES LTDA</option>
+                                        <option>ANTONIO MARCOS SILVA BATISTA</option>
+                                        <option>APPA SERVICOS TEMPORARIOS E EFETIVOS LTDA</option>
+                                        <option>ASSBRACOM - ASSOCIACAO BRASILEIRA DOS TRABALHADORES DO COMERCIO</option>
+                                            <option>ASSOCIACAO SAUDE OPERARIA</option>
+                                            <option>ATITUDE TERCEIRIZACAO DE SERVICOS EIRELI</option>
+                                            <option>BEM ENGENHARIA EIRELLI</option>
+                                            <option>BRASANITAS EMPRESA BRASILEIRA DE SANEAMENTO E COM LTDA</option>
+                                            <option>CAMARADA ADMINISTRACAO DE RESTAURANTES S.A.</option>
+                                            <option>CENTRALLIMP LIMPEZA E SERVICOS LTDA</option>
+                                            <option>CENTURIAO PRESTADORA DE SERVICO</option>
+                                            <option>CITY SERVICOS TRANSPORTES ESPECIALIZADOS</option>
+                                            <option>CLINICA DE SERVICOS MEDICOS GERAIS LTDA</option>
+                                            <option>CONCEPT SERVICOS E TERCEIRIZACAO LTDA</option>
+                                            <option>CONDOMINIO VILLA COSTEIRA RESIDENCIAS</option>
+                                            <option>CONTRATE SERVICOS LTDA</option>
+                                            <option>COOEND COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DA QUALIDADE INDUSTRIAL LTDA</option>
+                                            <option>CORESE SERVICOS ESPECIALIZADOS LTDA</option>
+                                            <option>COSTA NETO & CIA LTDA</option>
+                                            <option>CRETA COMERCIO E SERVICOS LTDA</option>
+                                            <option>DAVID MARINHO DOS SANTOS 05697210400</option>
+                                            <option>DEE TECH SERVICOS DE MANUTENCAO E CONSULTORIA LTDA</option>
+                                            <option>DESENVOLVIDA-INSTITUTO PARA O DESENVOLVIMENTO HUMANO</option>
+                                            <option>DFA SEGURANCA PATRIMONIAL E VIGILANCIA LTDA</option>
+                                            <option>DIANA DE JESUS BARROS 74465767315</option>
+                                            <option>DLB MANUTENCAO E CONSERVACAO EIRELI</option>
+                                            <option>EDIFICIO MANSAO PROFESSOR JOSE SILVEIRA</option>
+                                            <option>ELECNOR DO BRASIL LTDA</option>
+                                            <option>ELEMENTAR COMERCIO ATACADISTA E SERVICOS DE ALIMENTACAO LTDA</option>
+                                            <option>ELLU TERCEIRIZACAO EIRELI</option>
+                                            <option>EMBATTUR EMPRESA BAHIANA DE</option>
+                                            <option>EPIC SERVICOS LOCACOES LTDA</option>
+                                            <option>ESCOLTA VIP VIGILANCIA LTDA</option>
+                                            <option>EXSEG PRESTACAO DE SERVICOS LTDA</option>
+                                            <option>EXSEG SEGURANCA PRIVADA EIRELI</option>
+                                            <option>FE INTERMODAL EIRELI</option>
+                                            <option>FERNANDO RIBEIRO DOS SANTOS JUNIOR 04386999477</option>
+                                            <option>FOCO SERVICOS E EVENTOS LTDA</option>
+                                            <option>FRIJEL DISTRIBUIDOR DE ALIMENTOS LTDA</option>
+                                            <option>GALLOTTI TRUCKS PE COMERCIO DE AUTOMOTORES LTDA</option>
+                                            <option>GENTIL BARBOSA NEO OFFICE JARDINS</option>
+                                            <option>GIRO SERVICOS TERCEIRIZADOS EIRELI</option>
+                                            <option>GUINDASTES BRASIL OLEO E GAS LTDA</option>
+                                            <option>INGRID OLIVEIRA COSTA 06166447523</option>
+                                            <option>INTERSET SERVICOS LTDA</option>
+                                            <option>INVENTAR GMB CONSULTORIA LTDA</option>
+                                            <option>ITS TELECOMUNICACOES LTDA</option>
+                                            <option>JADIELLE VICENTE DE LIMA 11486715443</option>
+                                            <option>JAVA SEGURANCA PATRIMONIAL LTDA</option>
+                                            <option>JR CONSTRUCOES E EMPREENDIMENTOS EIRELI</option>
+                                            <option>JS SERVICOS DE LIMPEZA,MANUTENCAO E CONSERVACAO EIRELI</option>
+                                            <option>JSP SERVICOS E TERCEIRIZACAO DE MAO DE OBRA EIRELI</option>
+                                            <option>KAIROS SEGURANCA LTDA</option>
+                                            <option>KNOW-HOW EMPREENDIMENTOS E</option>
+                                            <option>LATINA AMERICA SERVICOS E ADMINISTRACOES LTDA</option>
+                                            <option>LIDERANCA LIMPEZA E CONSERVACAO LTDA</option>
+                                            <option>LJR SERVICOS DE MANUTENCAO PREDIAL E LIMPEZA LTDA</option>
+                                            <option>LOC-SERVICE COMERCIO E SERVICOS LTDA</option>
+                                            <option>LUCIANO MELO DE PINO - ME</option>
+                                            <option>M CONSTRUCOES & SERVICOS LTDA</option>
+                                            <option>M. PINHEIRO CONSTRUCOES E SERVICOS LTDA</option>
+                                            <option>MALKA VIGILANCIA PRIVADA LTDA EPP</option>
+                                            <option>MAP SERVICOS DE SEGURANCA EIRELI</option>
+                                            <option>MAP SISTEMAS DE SERVICOS</option>
+                                            <option>MARANATA PRESTADORA DE SERVICOS E CONSTRUCOES LTDA</option>
+                                            <option>MATERIA PRIMA COMERCIAL DE ALIMENTACAO EIRELI</option>
+                                            <option>MATTOS CONSTRUCOES LTDA</option>
+                                            <option>MAXSERV SERVICOS DE CONSERVACAO E</option>
+                                            <option>MB SERVICOS DE CONSERVACAO LTDA</option>
+                                            <option>MENEZES TRANSPORRTES LTDA</option>
+                                            <option>MERCIA MOURA RIBEIRO</option>
+                                            <option>METANOIA ENGENHARIA E TECNOLOGIA LTDA ME</option>
+                                            <option>MILANEZ SERVICOS PROFISSIONAIS LTDA</option>
+                                            <option>MIRANTE TERCEIRIZACAO E SERVICOS EIRELI</option>
+                                            <option>MJWF SERVICOS DE CONSTRUCAO CIVIL EIRELE</option>
+                                            <option>MR REFEICOES E SERVICOS ADMINISTRATIVOS EIRELI</option>
+                                            <option>NACIONAL SAUDE ADMINISTRADORA DE BENEFICIOS LTDA</option>
+                                            <option>OS ELOFORT SERVICOS S.A</option>
+                                            <option>OZZ SAUDE - EIRELI</option>
+                                            <option>PACHECO SERVICE LIMPEZA CONSERVACAO EIRELI</option>
+                                            <option>PAULISTANA SEGURANCA PATRIMONIAL LTDA</option>
+                                            <option>PHM SERVICE & SOLUTIONS EIRELI</option>
+                                            <option>PREST SERVIC PRESTACAO DE SERVICOS DE CONSERVACAO E LIMPEZA EIRELI</option>
+                                            <option>PRIMMA SERVICOS E EMPREENDIMENTOS EIRELI</option>
+                                            <option>PROJETA CONSULTORIA E SERVICOS LTDA</option>
+                                            <option>R 3 S SERVICOS DE LIMPEZA E TERCEIRIZACAO LTDA</option>
+                                            <option>R8 SERVICO DE LOCACAO DE MAO DE OBRA LTDA</option>
+                                            <option>RAIOS VIGILANCIA E SEGURANCA PATRIMONIAL LTDA</option>
+                                            <option>REVIVER ADMINISTRACAO PRISIONAL PRIVADA EIRELI</option>
+                                            <option>ROD TRANSPORTE E SERVICOS EIRELI</option>
+                                            <option>ROSINEIDE PURIFICACAO LEAL</option>
+                                            <option>SA NACIONAL DE VEICULOS LTDA</option>
+                                            <option>SANSP - SOCIEDADE DE ASSIST E DESENVOLVIMENTO ECON E SOCIAL DOS SERV PUB FEDERA</option>
+                                            <option>SANTANA LIMPEZA LTDA</option>
+                                            <option>SEBASTIAO GUTERRES FRAZAO</option>
+                                            <option>SETA TRANSPORTES LTDA</option>
+                                            <option>SHOCK SEGURANCA ELETRONICA LTDA</option>
+                                            <option>SIND DOS TRAB EM TRANSPORTES ROD DA REG METR DE SALVADOR</option>
+                                            <option>SINDICATO DOS SERVIDORES EM EDUCACAO NO MUNICIPIO DE CAMPO FORMOSO BAHIA</option>
+                                            <option>SINDICATO DOS SERVIDORES PUBLICOS MUNICIPAIS DE MACARANI, MAIQUINIQUE, ITARANTIM E POTIRAGUA / BA</option>
+                                            <option>SINDICATO INTERMUNICIPAL DOS SERVIDORES PUBLICOS MUNICIPAIS DE ITAPETINGA, CAATIBA, ITAMBE, IBICUI,</option>
+                                            <option>SOCICAM NAUTICA E TURISMO LTDA. - SPE</option>
+                                            <option>SOLUCOES SERVICOS TERCEIRIZADOS- EIRELI</option>
+                                            <option>SOUZZAX SERVICOS DE CONSTRUCAO</option>
+                                            <option>SUGA TUDO LIMPEZAS INDUSTRIAIS LTDA</option>
+                                            <option>TPL ENGENHARIA E PROJETOS LTDA</option>
+                                            <option>TRANSPORTADORA PRIMEIRA DO NORDESTE LTDA</option>
+                                            <option>VIA AMBIENTAL ENGENHARIA E SERVICOS S/A</option>
+                                            <option>VIGSEG VIGILANCIA E SEGURANCA DE VALORES EIRELI</option>
+                                            <option>VIKINGS SISTEMAS DE LIMPEZA LTDA</option>
+                                            <option>VOITH HYDRO SERVICES LTDA</option>
+                                            <option>WONDER SERVICOS TERCEIRIZADOS LTDA</option>
+                                             
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            <div class='label'>
+                                <div> CPT / Carência / Situação Plano</div>
+                                <div>
+                                    <select name="cpt" id="cpt" required>
+                                        <optgroup label="Paciente com Plano Regular">
+                                        <option value="" selected disabled> Selecione a situação do plano do paciente</option>
+                                        <option>Situação do Plano Ok</option>                    
+                                      </optgroup>
+                                      <optgroup label="Situação Irregular">
+                                        <option>Paciente com Carência</option>
+                                        <option>Paciente Empresa Suspensa</option>
+                                        <option>Paciente Empresa Cancelada</option>
+                                        <option>Paciente Empresa em Cancelamento</option>
+                                      </optgroup>
+                                      <optgroup label="Situação de CPT">
+                                        <option>Câncer</option>
+                                        <option>Doenças autoimunes</option>
+                                        <option>Doenças Cardíacas</option>
+                                        <option>Doenças Crônicas  (diabetes, hipertensão etc)</option>
+                                        <option>Doenças Neurológicas</option>
+                                        <option>Doenças Ortopédicas (coluna, hérnia de disco etc)</option>
+                                        <option>Doenças Renais</option>
+                                        <option>Doenças Respiratórias</option>
+                                        <option>HIV/AIDS</option>
+                                        <option>Transtornos Psicológicos</option>
+                                        <option>Transtornos Psiquiátricos</option>
+                                        
+                                      </optgroup>
+                                    </select> 
+                                </div>
+                        </div>
+                          
+                        <div class="label">
+                            <div><h4> Informações Clínicas </h4></div>
+                            <div>N° da Guia</div>
+                                <div>
+                                    <input type="number" name="numdaGuia" id="numdaGuia" placeholder="Digite aqui o número da Guia" required>
+                                </div>
+                                <div>Código CID - Entrada</div>
+                                <div>
+                                    <input type="text" name="codCID1" id="codCID1" placeholder="Digite suposto CID de entrada do Paciente" required>
+                                </div>
+                                <div> Código CID de Confirmação Diagnóstica</div>
+                                <div>
+                                    <input type="text" name="codCID2" id="codCID2" placeholder="Digite o CID da confirmação diagnóstica do Paciente">
+                                </div>
+                                <div>Prestador</div>
+                                <div>
+                                    <select name="prestador" id="prestador">
+                        
+                                        <optgroup label="Rede San Miguel">
+                                            <option value="" selected disabled> Selecione o Prestador onde o paciente está internado </option> 
+                                            <option>Clinnort San Miguel - Lauro de Freitas</option>
+                                            <option>Day Hospital San Miguel - Itaigara</option>
+                                            <option>Clinica Lotus - San Miguel - Camaçari</option>        
+                                        </optgroup>
+                
+                                            <optgroup label="Prestador Público">
+                                            <option>Centro de Informações Antiveneno</option>
+                                                <option>Centro de Referência Estadual de Aids</option>
+                                                <option>Centro de Referência Estadual de Atenção à Saúde do Idoso</option>
+                                                <option>Centro de Referência Estadual para Assistência ao Diabetes e Endocrinologia</option>
+                                                <option>Centro Estadual de Atenção ao Adolescente Isabel Souto</option>
+                                                <option>Centro Estadual de Prevenção e Reabilitação de Deficiência</option>
+                                                <option>Centro Estadual de Oncologia (CICAN)</option>
+                                                <option>Complexo Hospitalar Universitário Professor Edgard Santos</option>
+                                                <option>Ambulatório Professor Francisco de Magalhães Neto</option>
+                                                <option>Centro Pediátrico Professor Hosannah de Oliveira</option>
+                                                <option>Hospital Universitário Professor Edgard Santos</option>
+                                                <option>Hospital Ana Mariani</option>
+                                                <option>Hospital Ana Nery</option>
+                                                <option>Hospital Aristides Maltez</option>
+                                                <option>Hospital Couto Maia</option>
+                                                <option>Hospital da Mulher Maria Luzia Costa dos Santos</option>
+                                                <option>Hospital Municipal de Salvador</option>
+                                                <option>Hospital de Medicina Veterinária Renato de Medeiro Neto</option>
+                                                <option>Hospital Deputado Luís Eduardo Magalhães</option>
+                                                <option>Hospital do Oeste</option>
+                                                <option>Hospital Municipal de Catu</option>
+                                                <option>Hospital do Subúrbio</option>
+                                                <option>Hospital Ernesto Simões Filho</option>
+                                                <option>Hospital Especializado Dom Rodrigo de Menezes</option>
+                                                <option>Hospital Especializado Lopes Rodrigues</option>
+                                                <option>Hospital Especializado Otávio Mangabeira</option>
+                                                <option>Hospital Estadual da Criança</option>
+                                                <option>Hospital Geral Clériston Andrade</option>
+                                                <option>Hospital Geral de Coaraci</option>
+                                                <option>Hospital Geral de Camaçari</option>
+                                                <option>Hospital Geral de Ipiaú</option>
+                                                <option>Hospital Geral de Jeremoabo</option>
+                                                <option>Hospital Geral de Vitória da Conquista</option>
+                                                <option>Hospital Geral Prado Valadares</option>
+                                                <option>Hospital Geral do Estado</option>
+                                                <option>Maternidade João Batista Caribé</option>
+                                                <option>Hospital Geral Menandro de Farias</option>
+                                                <option>Hospital Geral Luiz Viana Filho</option>
+                                                <option>Hospital Geral Roberto Santos</option>
+                                                <option>Hospital Juliano Moreira</option>
+                                                <option>Hospital Manoel Victorino</option>
+                                                <option>Hospital Mário Leal</option>
+                                                <option>Hospital Naval de Salvador</option>
+                                                <option>Hospital Psiquiátrico Afrânio Peixoto</option>
+                                                <option>Hospital Regional de Guanambi</option>
+                                                <option>Hospital Regional de Irecê</option>
+                                                <option>Hospital Regional de Juazeiro</option>
+                                                <option>Hospital Regional de Santo Antônio de Jesus</option>
+                                                <option>Hospital Regional Dantas Bião</option>
+                                                <option>Hospital Regional da Chapada</option>
+                                                <option>Hospital Regional Costa do Cacau</option>
+                                                <option>Hospital Santo Antônio</option>
+                                                <option>Instituto de Perinatologia da Bahia (IPERBA)</option>
+                                                <option>Maternidade Albert Sabin</option>
+                                                <option>Maternidade Climério de Oliveira</option>
+                                                <option>Maternidade de Referência Professor José Maria de Magalhães Neto</option>      
+                                    </optgroup>
+                                    <optgroup label="Rede Particular">
+                                        <option>Hospital Adventista de São Paulo</option>
+                                        <option>Hospital Aliança</option>
+                                        <option>Hospital Ames</option>
+                                        <option>Hospital 2 de Julho</option>
+                                        <option>Hospital da Bahia</option>
+                                        <option>Hospital Espanhol</option>
+                                        <option>Hospital Português da Bahia</option>
+                                        <option>Hospital São Rafael</option>
+                                        <option>SARAH Salvador</option>
+                                        <option>Hospital da Sagrada Família</option>
+                                        <option>Hospital Teresa de Lisieux</option>
+                                        <option>Santa Casa de Misericórdia da Bahia</option>
+                                        <option>Hospital Santa Izabel</option>                           
+                                    </optgroup>    
+                
+                                    
+                                </select>
+                                </div>                
+                                
+                                <div> Acomodação do Plano do Paciente</div>
+                                <div>
+                                    <select name="acomodacao" id="acomodacao" required>
+                                        <option value="" selected disabled> Selecione a acomodação do Plano do paciente</option>
+                                        <option>Enfermaria</option>
+                                        <option>Apartamento</option>
+                                        <option>Ambulatorio</option>
+                
+                                    </select>
+                                </div>
+                                
+                                <div>Cidade Prestador</div>
+                                <div>
+                                    <select name="cidadeprestador" id="cidadeprestador" required>
+                                        <option value="" selected disabled> Selecione a cidade local do internamento</option>
+                                        <option> Alagoinhas</option>
+                                        <option> Aracaju </option>
+                                        <option> Camaçari </option>
+                                        <option> Catu </option>
+                                        <option> Dias D'avila </option>
+                                        <option> Duque de Caxias </option>
+                                        <option> Eunápólis </option>
+                                        <option> Feira de Santana </option>
+                                        <option> Jequié </option>
+                                        <option> Juazeiro </option>
+                                        <option> Lauro de Freitas </option>
+                                        <option> Maceió </option>
+                                        <option> Recife </option>
+                                        <option> Rio de Janeiro </option>
+                                        <option> Salvador </option>
+                                        <option> Santo Antônio de Jesus </option>
+                                        <option> São Luis </option>
+                                        <option> São Paulo </option>
+                                        <option> Vitoria da Conquista </option>
+                                    </select>   
+                                </div>
+                                
+                                <div>UF</div>
+                                <div>
+                                    <select name="ufprestador" id="ufprestador" required>
+                                        <option value="" selected disabled> Selecione o Estado local da internação do paciente </option>
+                                        <option> AL</option>
+                                        <option> BA </option>
+                                        <option> MA </option>
+                                        <option> PE </option>
+                                        <option> RJ </option>
+                                        <option> SE </option>
+                                        <option> SP </option>                
+                                    </select>
+                                </div>
+                                
+                                <div>Data da Admissão</div>
+                                <div>
+                                    <input type="date" name="dataAdmissao" id="dataAdmissao">
+                                </div>
+                
+                                <div>Acomodação Instalada</div>
+                                <div>
+                                    <select name="acomodacaoInstalada" id="acomodacaoInstalada" required>
+                                        <option value="" selected disabled> Selecione a acomodacao em que o paciente está internado </option>
+                                        <option>Apartamento</option>
+                                        <option>Berçario</option>
+                                        <option>Enfermaria</option>
+                                        <option>Sala de Observação</option>
+                                        <option>Sala de Recuperação Anestésica</option>
+                                        <option>Semi- UTI</option>
+                                        <option>Suíte</option>
+                                        <option>UTI</option>                                        
+                                    </select>
+                                </div>
+                
+                                <div> Obs /  Comentário Quadro Clínico</div>
+                                <div>
+                                    <textarea cols="10" rows="10" type="text" name="conteudo" id="conteudo" placeholder="Registre aqui qualquer informação pertinente e/ou comentários sobre o quadro clinico do paciente"></textarea>
+                                </div>
+                
+                        </div>
+                
+                        <div>
+                            <button>Salvar</button>
+                            <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
+                        </div>
+                
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div> <!--CONTEUDO DO PROGRAMA FIM-->
+    </section> <!--BARRA LATERAL INICIO-->
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/all.min.js"></script>
+</body>
+</html>

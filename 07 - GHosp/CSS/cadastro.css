@@ -1,0 +1,36 @@
+#barraPesquisa{
+    margin-top: 1%;
+    flex:1;
+}
+
+.abaNavegacaoInterna{
+margin-top: 1%;
+
+}
+div.abas nav a{
+    margin: 1px;
+    border: 1px solid;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 2%;
+    background: white;
+    color: black;
+}
+
+div.abas nav a:focus{
+    background: white;
+}
+
+div.abas div{
+    background: white;
+    display: none;
+    margin-top: -1%;
+}
+
+div.abas div:target{
+    background: white;
+    display: block;
+}
+
+
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/07 -/CSS/home.css">
+    <link rel="stylesheet" href="/07 -/CSS/cadastro.css">
+    <link rel="stylesheet" href="/07 -/CSS/style.css">
+    <link rel="shortcut icon" href="">
+    <script type="text/javascript" src="./Js/ghospjavascript.js"></script>
+    <title>GHosp - Medvida Brasil</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Cadastrar Internados</a>
+        <a href="#">Consulta CID</a>
+        <a href="#">Desospitalizar Paciente</a>
+        <a href="#">Pesquisar</a>
+        <a href="#">Sobre</a>
+        <a href="#">Sair</a>
+    </div>
+      
+    <div id="main">
+        <a href="#"><img src="./Image/Rede San Miguel - Logo - Nome Branco.png"/></a>
+        <h2>GHosp - Sistema de Gestão Hospitalar - San Miguel</h2>
+    
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+   
+<body page='lista'>
+    
+    <div id="barraPesquisa" style='display: flex;'>
+        <input placeholder="PESQUISAR" autofocus id='inputPesquisa'/>
+    </div>
+
+    <div class='abas'>
+ 
+        <nav class="abaNavegacaoInterna">
+            <a href="#aba1">Identificação Cadastral</a>
+            <a href="#aba2">Informações Clinicas</a>
+            <a href="#aba3">Informações Sistêmicas</a>
+        </nav>
+
+        <div id="aba1">
+            <table id="tabela1">
+                <h1>Pacientes Internados: - Identificação Cadastral</h1>
+                <thead>
+                    <tr>
+                        <th>Carteirinha</th>
+                        <th>Paciente</th>
+                        <th>Idade</th>
+                        <th>Telefone</th>
+                        <th>Cidade Residência</th>
+                        <th>UF</th>
+                        <th>Empresa</th>
+                        <th>Carência / CPT / Empresa Cancelada / Suspensa </th>
+                        <th>Cidade Residência</th>
+                    </tr>
+                </thead>
+                <tbody id='listaRegistrosBody'></tbody>
+            </table>
+        </div>
+        
+        <div id="aba2">
+            <table id="tabela2">
+                <h1>Pacientes Internados: - Informações Clinicas</h1>
+                <thead>
+                    <tr>
+                        <th>Nº Guia</th>
+                        <th>Paciente</th>
+                        <th>Cód. CID</th>
+                        <th>Descrição CID</th>
+                        <th>Prestador</th>
+                        <th>Acomodação Alocação</th>
+                        <th>Cidade Prestador</th>
+                        <th>UF</th>
+                        <th>Data de Admissão</th>
+                        <th>Hora Admissão</th>
+                        <th>Tipo Diária</th>
+                        <th>Observação / Informações Clinicas</th>
+                        <th>Situação Atual</th>
+                        <th>Tempo de Internamento</th>
+                        <th>Semanas Internamento</th>
+                    </tr>
+                </thead>
+                <tbody id='listaRegistrosBody2'></tbody>
+            </table>
+        </div>
+
+        <div id="aba3">
+            <table id="tabela3">
+                <h1>Pacientes Internados: - Informações Sistemicas</h1>
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>Paciente</th>
+                        <th>Data Alteração</th>
+                        <th>Alerta Semanas</th>
+                        <th>Alta Médica</th>
+                        <th>Motivo da Alta</th>
+                    </tr>
+                </thead>
+                <tbody id='listaRegistrosBody3'></tbody>
+            </table>
+        </div>              
+
+    </div>
+
+    <div>
+        <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
+    </div>
+
+    <form id='cadastroRegistro'>
+
+        <div class='label'>
+            <div>ID</div>
+            <div>
+                <input type='number' readonly id='id' />
+            </div>
+        </div>
+
+        <div class='label'>
+            <div>Nome</div>
+            <div>
+                <input id='nome' />
+            </div>
+        </div>
+
+        <div class='label'>
+            <div>Fone</div>
+            <div>
+                <input type='tel' id='fone' />
+            </div>
+        </div>
+
+        <div>
+            <button>Salvar</button>
+            <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
+        </div>
+        
+    </form>
+<br><br><br><br>
+</body>
+</html>

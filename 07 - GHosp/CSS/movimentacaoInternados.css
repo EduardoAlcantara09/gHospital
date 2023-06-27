@@ -1,0 +1,47 @@
+.box-info input{
+    width: 95%;
+    margin-top:1% ;
+    margin-left: 1%;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    color: black;
+}
+/* CSS - INICIO - HTML - MOVIMENTACAO INTERNADOS*/
+
+.botao-NovoUsuario{
+    margin-top: 1%;
+}
+
+.tab-desosp-text table tr{
+    color: black;
+    
+}
+
+.tab-desosp-text table th{
+    color: black;
+    font-size: 11px;
+    text-align: center;
+    background-color: #07a;
+    color: white;
+    
+}
+
+/* CSS - FIM - HTML - MOVIMENTACAO INTERNADOS*/
+
+/* CSS - INICIO - HTML - CONSULTA DOS DESOSPITALIZADOS*/
+.tab-desosp-text2 table tr{
+    color: black;
+    
+}
+
+.tab-desosp-text2 table th{
+    
+    font-size: 11px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    
+}
+
+/* CSS - FIM - HTML - CONSULTA DOS DESOSPITALIZADOS*/
